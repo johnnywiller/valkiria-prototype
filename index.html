@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valkirias Events — Wedding Cost Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="bg-vignette"></div>
+
+<header class="brand-header">
+  <div class="brand-mark" aria-hidden="true">
+    <svg viewBox="0 0 100 100" width="40" height="40">
+      <polygon points="50,6 91,72 9,72" fill="none" stroke="currentColor" stroke-width="4"/>
+      <polygon points="50,34 82,88 18,88" fill="none" stroke="currentColor" stroke-width="4"/>
+      <polygon points="50,62 68,94 32,94" fill="none" stroke="currentColor" stroke-width="4"/>
+    </svg>
+  </div>
+  <div class="brand-text">
+    <div class="brand-name">Valkirias Events</div>
+    <div class="brand-sub">Thematic Wedding Architects</div>
+  </div>
+</header>
+
+<main class="stage-wrap">
+
+  <!-- Progress -->
+  <nav class="progress" id="progress" aria-hidden="true">
+    <div class="progress-step" data-step="1"><span class="dot">1</span><span class="label">City</span></div>
+    <div class="progress-line"></div>
+    <div class="progress-step" data-step="2"><span class="dot">2</span><span class="label">Theme</span></div>
+    <div class="progress-line"></div>
+    <div class="progress-step" data-step="3"><span class="dot">3</span><span class="label">Extras</span></div>
+    <div class="progress-line"></div>
+    <div class="progress-step" data-step="4"><span class="dot">4</span><span class="label">Quote</span></div>
+  </nav>
+
+  <!-- Screen 0: Intro -->
+  <section class="screen active" id="screen-intro">
+    <div class="intro">
+      <p class="eyebrow">Instant Estimate</p>
+      <h1>Price your legend of a wedding</h1>
+      <p class="intro-copy">
+        Vikings, medieval courts, Celtic legend, frozen kingdoms and more —
+        choose your city, your saga, and the flourishes that make it yours.
+        Get a real estimate in under a minute.
+      </p>
+      <button class="btn btn-primary btn-lg" id="btn-start">Begin the calculator ➜</button>
+    </div>
+  </section>
+
+  <!-- Screen 1: City -->
+  <section class="screen" id="screen-city">
+    <h2 class="screen-title">Where will you celebrate?</h2>
+    <p class="screen-subtitle">Every city has its own base price and vendor network — availability of themes and extras varies by location.</p>
+    <div class="card-grid" id="city-grid"></div>
+  </section>
+
+  <!-- Screen 2: Theme -->
+  <section class="screen" id="screen-theme">
+    <h2 class="screen-title">Choose your saga</h2>
+    <p class="screen-subtitle" id="theme-subtitle">Themes available in your chosen city.</p>
+    <div class="card-grid" id="theme-grid"></div>
+    <div class="nav-row">
+      <button class="btn btn-ghost" data-back="screen-city">← Back to city</button>
+    </div>
+  </section>
+
+  <!-- Screen 3: Extras -->
+  <section class="screen" id="screen-extras">
+    <h2 class="screen-title">Add the flourishes</h2>
+    <p class="screen-subtitle" id="extras-subtitle">Pick as many as you like — only items available in your city are shown.</p>
+    <div id="extras-categories"></div>
+    <div class="nav-row">
+      <button class="btn btn-ghost" data-back="screen-theme">← Back to theme</button>
+    </div>
+  </section>
+
+  <!-- Screen 4: Summary -->
+  <section class="screen" id="screen-summary">
+    <h2 class="screen-title">Your estimate</h2>
+    <p class="screen-subtitle">An itemized preview — a Valkirias planner will refine this after a consultation.</p>
+
+    <div class="invoice" id="invoice">
+      <!-- populated by JS -->
+    </div>
+
+    <p class="fine-print" id="fine-print"></p>
+
+    <div class="nav-row">
+      <button class="btn btn-ghost" data-back="screen-extras">← Back to extras</button>
+      <button class="btn btn-ghost" id="btn-print">🖨 Save / Print quote</button>
+      <button class="btn btn-primary" id="btn-restart">Start a new estimate</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- Sticky total bar (visible on theme + extras screens) -->
+<div class="sticky-total" id="sticky-total">
+  <div class="sticky-total-inner">
+    <span class="sticky-label" id="sticky-label">Running total</span>
+    <span class="sticky-amount" id="sticky-amount">€0</span>
+    <button class="btn btn-primary btn-sm" id="btn-see-quote">See my quote ➜</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>Valkirias Events · Prototype calculator · All prices shown are illustrative example figures.</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
